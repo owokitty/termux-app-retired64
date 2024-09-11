@@ -1,5 +1,5 @@
 ### This is a rough/WIP example of a fork of Termux with a changed package name
-### [source code of the contents of bootstrap .zip files here](https://github.com/owokitty/termux-packages)
+### [source code of the contents of bootstrap .zip files here](https://github.com/owokitty/termux-packages-retired64)
 
 # Termux application original README below
 
