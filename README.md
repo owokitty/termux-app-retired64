@@ -1,4 +1,37 @@
-# Termux application
+### This is a rough/WIP example of a fork of Termux with a changed package name and a huge number of preinstalled packages
+### [source code of the contents of `bootstrap-aarch64.zip` here](https://github.com/owokitty/termux-packages-retired64)
+
+- To build this app, run this after installing git, git lfs, wget, zip, java and Android SDK:
+
+```bash
+git clone https://github.com/owokitty/termux-app-retired64.git
+cd app/src/main/assets/
+# assemble real bootstrap from parts stored in git lfs
+cat boostrap-aarch64.zip.part2 >> bootstrap-aarch64.zip.part1
+rm boostrap-aarch64.zip.part2
+mv bootstrap-aarch64.zip.part1 ../../../../../bootstrap-aarch64.zip
+# bypass gradle build artifact limits by using a dummy bootstrap, then replacing it
+touch bootstrap-aarch64.zip
+cd ../../../../
+./gradlew assembleDebug
+mv app/build/outputs/apk/debug/termux-app_apt-android-7-debug_arm64-v8a.apk ../
+cd ../
+mkdir tmp && cd tmp
+unzip ../termux-app_apt-android-7-debug_arm64-v8a.apk
+mv ../bootstrap-aarch64.zip assets/
+zip -0 -r com.retired64.termux.unaligned.apk ./*
+# resign apk using test key from repo
+wget https://github.com/patrickfav/uber-apk-signer/releases/download/v1.3.0/uber-apk-signer-1.3.0.jar
+java -jar uber-apk-signer-1.3.0.jar \
+     -a com.retired64.termux.unaligned.apk \
+     --ks ../termux-app-retired64/app/testkey_untrusted.jks \
+     --ksAlias alias \
+     --ksKeyPass xrj45yWGLbsO7W0v \
+     --ksPass xrj45yWGLbsO7W0v \
+     -o com.retired64.termux
+```
+
+# Termux application original README below
 
 [![Build status](https://github.com/termux/termux-app/workflows/Build/badge.svg)](https://github.com/termux/termux-app/actions)
 [![Testing status](https://github.com/termux/termux-app/workflows/Unit%20tests/badge.svg)](https://github.com/termux/termux-app/actions)

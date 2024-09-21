@@ -1,0 +1,2 @@
+bootstrap-aarch64.zip.part1 filter=lfs diff=lfs merge=lfs -text
+bootstrap-aarch64.zip.part2 filter=lfs diff=lfs merge=lfs -text
