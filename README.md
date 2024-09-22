@@ -5,7 +5,7 @@
 
 ```bash
 git clone https://github.com/owokitty/termux-app-retired64.git
-cd app/src/main/assets/
+cd termux-app-retired64/app/src/main/assets/
 # assemble real bootstrap from parts stored in git lfs
 cat boostrap-aarch64.zip.part2 >> bootstrap-aarch64.zip.part1
 rm boostrap-aarch64.zip.part2
