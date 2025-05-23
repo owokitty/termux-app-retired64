@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> Superseded by https://github.com/robertkirkman/termux-generator
+
 ### This is a rough/WIP example of a fork of Termux with a changed package name and a huge number of preinstalled packages
 ### [source code of the contents of `bootstrap-aarch64.zip` here](https://github.com/owokitty/termux-packages-retired64)
 
